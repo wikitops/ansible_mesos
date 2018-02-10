@@ -1,0 +1,16 @@
+---
+
+- hosts: master
+  remote_user: vagrant
+  become: yes
+  roles:
+    - zookeeper
+    - mesos
+    - marathon
+
+- hosts: slave
+  remote_user: vagrant
+  become: yes
+  roles:
+    - docker
+    - mesos

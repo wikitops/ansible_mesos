@@ -1,0 +1,37 @@
+---
+
+- name: Install prerequisites packages
+  apt:
+    pkg: "{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - openjdk-8-jdk
+    - zookeeper
+    - zookeeperd
+
+- name: Configure Zookeeper
+  template:
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - "etc/zookeeper/conf/zoo.cfg"
+    - "etc/zookeeper/conf/myid"
+  notify: Restart zookeeper
+  tags: mesos-zookeeper
+
+- name: Configure ZooKeeper systemd service
+  template:
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+    owner: root
+    group: root
+    mode: 0664
+  with_items:
+    - "lib/systemd/system/zookeeper.service"
+  notify:
+    - Restart zookeeper
