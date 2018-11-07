@@ -1,7 +1,0 @@
----
-
-- name: Restart zookeeper
-  systemd:
-    name: zookeeper
-    state: restarted
-    enabled: yes
