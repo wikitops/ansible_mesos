@@ -6,13 +6,13 @@
   roles:
     - zookeeper
 
-- hosts: master
+- hosts: mesos-master
   remote_user: vagrant
   become: yes
   roles:
     - mesos
 
-- hosts: slave
+- hosts: mesos-slave
   remote_user: vagrant
   become: yes
   roles:

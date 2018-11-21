@@ -44,7 +44,7 @@
     owner: root
     group: root
     mode: 0664
-  when: inventory_hostname in groups['master']
+  when: inventory_hostname in groups['mesos-master']
   notify:
     - Restart mesos-master
 
@@ -55,5 +55,5 @@
     owner: root
     group: root
     mode: 0664
-  when: inventory_hostname in groups['slave']
+  when: inventory_hostname in groups['mesos-slave']
   notify: Restart mesos-slave

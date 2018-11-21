@@ -6,7 +6,7 @@
 
 # Debian
 mesos_apt_repository_url: "deb http://repos.mesosphere.com/{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }} main"
-mesos_apt_repository_key: keyserver.ubuntu.com
+mesos_apt_repository_key: http://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0xE56151BF
 
 # Users
 mesos_owner: root

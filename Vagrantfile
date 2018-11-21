@@ -81,8 +81,8 @@ Vagrant.configure("2") do |config|
           ansible.host_key_checking   = false
           ansible.groups = {
             "mesos" => ["#{$instance_name_prefix}0[1:#{$num_instances}]"],
-            "master" => ["#{$instance_name_prefix}0[1:#{$num_instances_master}]"],
-            "slave" => ["#{$instance_name_prefix}0[2:#{$num_instances}]"],
+            "mesos-master" => ["#{$instance_name_prefix}0[1:#{$num_instances_master}]"],
+            "mesos-slave" => ["#{$instance_name_prefix}0[2:#{$num_instances}]"],
             "zookeeper" => ["#{$instance_name_prefix}0[1:#{$num_instances_zookeeper}]"]
           }
         end

@@ -12,8 +12,7 @@
 
 - name: MESOS DEBIAN | Add repository key
   apt_key:
-    id: E56151BF
-    keyserver: "{{ mesos_apt_repository_key }}"
+    url: "{{ mesos_apt_repository_key }}"
     state: present
 
 - name: MESOS DEBIAN | Add repository
